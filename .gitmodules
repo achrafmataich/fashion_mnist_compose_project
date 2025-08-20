@@ -1,0 +1,9 @@
+[submodule "ai_model"]
+	path = ai_model
+	url = https://github.com/achrafmataich/fashion_mnist_ai_model.git
+[submodule "backend"]
+	path = backend
+	url = https://github.com/achrafmataich/fashion_mnist_backend.git
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/achrafmataich/fashion_mnist_frontend.git

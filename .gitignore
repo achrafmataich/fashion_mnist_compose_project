@@ -1,0 +1,55 @@
+# General
+.vscode/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+*.DS_Store
+*.log
+*.env
+.env*
+
+# Python
+ai_model/fashion_cnn.pt
+ai_model/.pytest_cache/
+ai_model/.mypy_cache/
+ai_model/.venv/
+ai_model/venv/
+ai_model/.coverage
+ai_model/.cache/
+
+# Java
+backend/target/
+backend/.idea/
+backend/.classpath
+backend/.project
+backend/.settings/
+backend/.mvn/
+backend/generated-sources/
+backend/generated-test-sources/
+
+# Node/Angular
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/.env*
+
+# Docker
+**/*.pid
+**/*.pid.lock
+
+# OS
+Thumbs.db
+
+# Others
+*.bak
+*.tmp
+
+# Git
+.gitmodules
+
+# Ignore local environment files
+frontend/src/environments/environment.*.ts
+!frontend/src/environments/environment.example.ts

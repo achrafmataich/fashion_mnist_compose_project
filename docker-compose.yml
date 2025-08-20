@@ -1,0 +1,45 @@
+name: fashion-mnist-compose-project
+
+services:
+  ai_model:
+    build:
+      context: ai_model
+      dockerfile: Dockerfile
+    container_name: fashion-mnist-ai-model
+    restart: unless-stopped
+    ports:
+      - "5050:5050"
+    networks:
+      - fashion-mnist-network
+
+  backend:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    container_name: fashion-mnist-backend
+    restart: unless-stopped
+    depends_on:
+      - ai_model
+    environment:
+      - FASHION_MNIST_GRPC_ADDRESS=fashion-mnist-ai-model:5050
+    ports:
+      - "8080:8080"
+    networks:
+      - fashion-mnist-network
+
+  frontend:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    container_name: fashion-mnist-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    networks:
+      - fashion-mnist-network
+
+networks:
+  fashion-mnist-network:
+    driver: bridge
